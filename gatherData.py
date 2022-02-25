@@ -3,6 +3,11 @@ import pandas as pd
 from sportsipy.ncaab.boxscore import Boxscore
 from sportsipy.ncaab.schedule import Schedule
 import json
+import firebase_admin
+
+cred = credentials.RefreshToken('token.json')
+app = firebase_admin.initialize_app(cred)
+
 
 URL = "https://www.ncaa.com/rankings/basketball-men/d1/ncaa-mens-basketball-net-rankings"
 html = requests.get(URL).content
