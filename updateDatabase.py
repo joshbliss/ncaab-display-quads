@@ -5,8 +5,10 @@ from sportsipy.ncaab.schedule import Schedule
 import json
 import firebase_admin
 from firebase_admin import credentials, db
+import os
 
-cred = credentials.Certificate('token.json')
+path = os.path.dirname(os.path.abspath(__file__)) + '/token.json'
+cred = credentials.Certificate(path)
 app = firebase_admin.initialize_app(cred, {'databaseURL': 'https://ncaam-quadrant-breakdown-default-rtdb.firebaseio.com'})
 
 ref = db.reference("/Teams")
