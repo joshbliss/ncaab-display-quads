@@ -21,8 +21,11 @@ df.to_json('temp.json', orient='records')
 f = open('temp.json')
 teams = json.load(f)
 
+ff = open('TeamAbbreviations.json')
+abbreviations = json.load(ff)
+
 for team in teams:
-    currentTeam = ref.order_by_child("School").equal_to(team['School']).get()
+    currentTeam = ref.order_by_child("Abbreviation").equal_to(abbreviations[team['School']].lower()).get()
     for i in currentTeam:
         teamKey = i
     for key in team:
