@@ -18,12 +18,12 @@ html = requests.get(URL).content
 df_list = pd.read_html(html)
 df = df_list[-1]
 
-df.to_json('temp.json', orient='records')
+df.to_json(os.path.dirname(os.path.abspath(__file__))+'/temp.json', orient='records')
 
-f = open('temp.json')
+f = open(os.path.dirname(os.path.abspath(__file__)) + '/temp.json')
 teams = json.load(f)
 
-ff = open('TeamAbbreviations.json')
+ff = open(os.path.dirname(os.path.abspath(__file__)) + '/TeamAbbreviations.json')
 abbreviations = json.load(ff)
 
 for team in teams:

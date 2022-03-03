@@ -1,0 +1,24 @@
+function ContentProcessing(props) {
+      return (
+        <div>
+          {props.content.map(content =>
+            content.type === "card" ? <Card title={content.title} /> : <Content title={content.title} paragraph={content.guideline} /> 
+          )}
+        </div>
+      );
+    }
+
+or
+
+function ContentProcessing(props) {
+        return (
+          <div>
+            {props.content.map((content) => {
+              if (content.type === "card") {
+                return (<Card title={content.title} />);
+              }
+              return (<Content title={content.title} paragraph={content.guideline} />);
+            })}
+          </div>
+        );
+      }
