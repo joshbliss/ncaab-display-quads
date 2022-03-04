@@ -18,9 +18,9 @@ html = requests.get(URL).content
 df_list = pd.read_html(html)
 df = df_list[-1]
 
-df.to_json(os.path.dirname(os.path.abspath(__file__))+'/temp.json', orient='records')
+df.to_json(os.path.dirname(os.path.abspath(__file__))+'/netRankings.json', orient='records')
 
-f = open(os.path.dirname(os.path.abspath(__file__)) + '/temp.json')
+f = open(os.path.dirname(os.path.abspath(__file__)) + '/netRankings.json')
 teams = json.load(f)
 
 ff = open(os.path.dirname(os.path.abspath(__file__)) + '/TeamAbbreviations.json')

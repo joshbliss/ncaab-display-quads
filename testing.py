@@ -12,7 +12,7 @@ app = firebase_admin.initialize_app(cred, {'databaseURL': 'https://ncaam-quadran
 
 ref = db.reference("/Teams")
 
-f = open('temp.json')
+f = open('netRankings.json')
 teams = json.load(f)
 
 ff = open('TeamAbbreviations.json')
@@ -28,7 +28,7 @@ html = requests.get(URL).content
 df_list = pd.read_html(html)
 df = df_list[-1]
 
-df.to_json('temp.json', orient='records')
+df.to_json('netRankings.json', orient='records')
 
 uconn_schedule = Schedule('CONNECTICUT')
 
